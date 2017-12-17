@@ -33,7 +33,7 @@ RUN apk --no-cache add bash
 
 RUN LANG=ja_JP.UTF8 tlmgr postaction install script ptex2pdf
 
-COPY .latexmkrc $HOME
+COPY .latexmkrc /root/
 
 RUN mkdir /workdir
 
