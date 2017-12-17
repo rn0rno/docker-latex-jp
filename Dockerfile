@@ -31,9 +31,9 @@ RUN apk --no-cache add perl wget xz tar fontconfig-dev && \
 
 RUN apk --no-cache add bash
 
-ADD .latexmkrc $HOME/.latexmkrc
-
 RUN LANG=ja_JP.UTF8 tlmgr postaction install script ptex2pdf
+
+COPY .latexmkrc $HOME
 
 RUN mkdir /workdir
 
