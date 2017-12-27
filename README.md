@@ -27,6 +27,12 @@ $ docker run --rm -it -v $PWD:/workdir rn0rno/docker-latex-jp
 $ latexmk -pdfdvi sample.tex
 ```
 
+If you have tex-setting share directory, run here.
+
+```bash
+$ docker run --rm -it -v $PWD:/workdir -v $[share-directory-path]:/workdir/share rn0rno/docker-latex-jp
+```
+
 ## Contribute
 
 PRs accepted.
