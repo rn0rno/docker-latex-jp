@@ -29,16 +29,20 @@ RUN apk --no-cache add perl wget xz tar fontconfig-dev && \
     rm -fr /tmp/install-tl-unx && \
     apk --no-cache del xz tar fontconfig-dev
 
-RUN apk --no-cache add bash
-
 RUN LANG=ja_JP.UTF8 tlmgr postaction install script ptex2pdf
+
+RUN apk --no-cache add bash
 
 COPY .latexmkrc /root/
 
 RUN mkdir /workdir
 
+RUN mkdir /workdir/share
+
 WORKDIR /workdir
 
 VOLUME ["/workdir"]
+
+VOLUME ["/workdir/share"]
 
 CMD ["bash"]
