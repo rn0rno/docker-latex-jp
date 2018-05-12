@@ -8,11 +8,13 @@ FROM frolvlad/alpine-glibc
 
 MAINTAINER rn0rno
 
-ENV PATH /usr/local/texlive/2017/bin/x86_64-linux:$PATH
+ENV PATH /usr/local/texlive/2018/bin/x86_64-linuxmusl:$PATH
+ENV PATH /usr/local/texlive/2018/texmf-dist/doc/man:$PATH
+ENV PATH /usr/local/texlive/2018/texmf-dist/doc/info:$PATH
 
 RUN apk --no-cache add perl wget xz tar fontconfig-dev ghostscript && \
     mkdir /tmp/install-tl-unx && \
-    wget -qO- ftp://tug.org/texlive/historic/2017/install-tl-unx.tar.gz | \
+    wget -qO- http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | \
     tar -xz -C /tmp/install-tl-unx --strip-components=1 && \
     printf "%s\n" \
       "selected_scheme scheme-basic" \
