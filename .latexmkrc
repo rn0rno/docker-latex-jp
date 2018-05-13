@@ -1,14 +1,11 @@
 #!/usr/bin/env perl
 
-$latex = 'platex -guess-input-enc -kanji=utf8 -src-specials -interaction=nonstopmode -synctex=1 %O %S';
-$latex_silent = 'platex -interaction=batchmode';
-$dvips = 'dvips';
+$latex = 'platex -guess-input-enc -src-specials -interaction=nonstopmode -synctex=1 %O %B';
+$latex_silent = 'platex -interaction=batchmode %O %B';
 $bibtex = 'pbibtex %O %B';
-$biber = 'biber --bblencoding=utf8 -u -U --output_safechars';
-$makeindex = 'mendex -U %O -o %D %S';
-$dvi_previewer = 'start dviout'; # -pv option
 $dvipdf = 'dvipdfmx %O -o %D %S';
-$pdf_mode = 3; # generates pdf via dvipdfmx
+$makeindex = 'mendex %O -o %D %S';
+$pdf_mode = 3;
 $max_repeat = 5;
 
 # Prevent latexmk from removing PDF after typeset.
